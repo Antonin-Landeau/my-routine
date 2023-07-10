@@ -8,7 +8,6 @@ interface NavRoutesProps {}
 
 const NavRoutes: FC<NavRoutesProps> = ({}) => {
   const pathname = usePathname();
-  console.log(pathname);
   const routes = [
     {
       label: "Routines",
@@ -20,6 +19,7 @@ const NavRoutes: FC<NavRoutesProps> = ({}) => {
     <div className="ml-5">
       {routes.map((route, index) => (
         <Link
+          key={index}
           href={route.href}
           className={cn(
             "inline-block p-4 hover:text-gray-600 dark:hover:text-gray-300",

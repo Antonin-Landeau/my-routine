@@ -80,6 +80,7 @@ model Routine {
   createdAt    DateTime        @default(now())
   updatedAt    DateTime        @updatedAt
   participants Participation[]
+  score        Score[]
 
   @@index([authorId])
 }
@@ -109,14 +110,17 @@ model Task {
 }
 
 model Score {
-  id     String @id @default(cuid())
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId String
-  task   Task   @relation(fields: [taskId], references: [id], onDelete: Cascade)
-  taskId    String
+  id      String  @id @default(cuid())
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId  String
+  task    Task    @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  taskId  String
+  routine Routine @relation(fields: [routineId], references: [id], onDelete: Cascade)
+  routineId String
 
   createdAt String
 
   @@index([userId])
   @@index([taskId])
+  @@index([routineId])
 }

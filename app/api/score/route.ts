@@ -15,8 +15,9 @@ export async function POST(req: Request) {
 
     const body = await req.json();
 
-    const { tasksDone } = body;
-
+    const { tasksDone, routineId } = body;
+    console.log(tasksDone);
+    console.log(routineId);
     const createdAt = generateDate();
 
     const formatedData = tasksDone.map((task: Task) => {
@@ -24,11 +25,10 @@ export async function POST(req: Request) {
         taskId: task.id,
         userId: session.user.id,
         createdAt: generateDate(),
+        routineId,
       };
     });
     console.log(formatedData);
-
-  
 
     const d = await db.score.deleteMany({
       where: {
@@ -36,6 +36,7 @@ export async function POST(req: Request) {
         createdAt: generateDate(),
       },
     });
+
     const scores = await db.score.createMany({
       data: formatedData,
     });
@@ -43,7 +44,6 @@ export async function POST(req: Request) {
     return NextResponse.json({
       message: "Scores has been created",
     });
-
   } catch (error) {
     console.log("[TASK_PUT]", error);
   }

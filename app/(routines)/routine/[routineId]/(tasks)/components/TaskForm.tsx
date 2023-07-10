@@ -22,6 +22,7 @@ const TaskForm: FC<TaskFormProps> = ({ tasks, params, completedTasks }) => {
     e.preventDefault();
     setIsLoading(true);
     const formData = {
+      routineId: params.routineId,
       tasksDone,
     };
     try {
