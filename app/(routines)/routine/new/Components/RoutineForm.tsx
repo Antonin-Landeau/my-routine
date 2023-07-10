@@ -14,7 +14,8 @@ import TextArea from "@/Components/ui/Inputs/TextArea";
 import ImageUpload from "@/Components/ui/Inputs/ImageUpload";
 import { RoutineFormData, Task } from "@/Types/types";
 import axios from "axios";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 interface RoutineFormProps {}
 
 const formSchema = z.object({
@@ -31,6 +32,7 @@ const formSchema = z.object({
 
 const RoutineForm: FC<RoutineFormProps> = ({}) => {
   const { index, nextIndex, prevIndex } = useCarousel();
+  const router = useRouter();
 
   const [title, setTitle] = useState<string>("");
   const [description, setDescritpion] = useState<string>("");
@@ -53,13 +55,10 @@ const RoutineForm: FC<RoutineFormProps> = ({}) => {
       mainImg: selectedImage,
       tasks,
     };
-    console.log(formData)
     try {
       const res = await axios.post("/api/routine", formData);
-      console.log(res);
-      if (res.status === 200) {
-        redirect(`/routine/${res.data.id}`)
-      }
+      router.push(`/routine/${res.data.id}`);
+      toast.success("Routine has been created");
     } catch (error) {}
   };
 
