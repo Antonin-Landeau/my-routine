@@ -2,6 +2,7 @@ export interface Task {
   title: string;
   description: string;
   points: number;
+  id?: string;
 }
 
 export interface RoutineFormData {
