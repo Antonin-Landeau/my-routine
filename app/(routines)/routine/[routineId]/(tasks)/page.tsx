@@ -39,7 +39,6 @@ const RoutineOverviewPage: FC<RoutineOverviewPageProps> = async ({
       task: true,
     },
   });
-  console.log(completedTasks);
 
   const formatedCompletedTasks = completedTasks.map((t) => t.task);
 

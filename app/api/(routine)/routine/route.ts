@@ -16,7 +16,8 @@ export async function POST(req: Request) {
     const body = await req.json();
 
     const { description, mainImg, tasks, title } = body;
-    console.log(tasks);
+    console.log(tasks)
+
     const routine = await db.routine.create({
       data: {
         title,

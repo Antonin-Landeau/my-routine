@@ -1,14 +1,12 @@
 import { db } from "@/Lib/db";
-import { LeaderBoardItem, LeaderBoardRes } from "@/Types/LeaderBoard";
+import { ILeaderBoardItem, LeaderBoardRes } from "@/Types/LeaderBoard";
 import Leaderboard from "@/app/(routines)/routine/[routineId]/leaderboard/components/LeaderBoard";
 import { Score, User } from "@prisma/client";
 import { NextResponse } from "next/server";
 
-
-
 const formatDataToLeaderBoard = (array: any) => {
   const arrayTyped = array as LeaderBoardRes[];
-  const leaderBoardRes: LeaderBoardItem[] = [];
+  const leaderBoardRes: ILeaderBoardItem[] = [];
   for (const obj of arrayTyped) {
     console.log(obj.userId);
     const existingObject = leaderBoardRes.find(
@@ -17,7 +15,7 @@ const formatDataToLeaderBoard = (array: any) => {
     console.log(existingObject);
     if (!existingObject) {
       console.log("no Index creting it");
-      const newUserLeaderBoard: LeaderBoardItem = {
+      const newUserLeaderBoard: ILeaderBoardItem = {
         user: {
           id: obj.userId,
           image: obj.user.image,
@@ -56,7 +54,7 @@ export async function GET(
     const sortedLeaderboard = leaderboard.sort((a, b) => b.score - a.score);
 
     return NextResponse.json({
-      res: sortedLeaderboard
+      res: sortedLeaderboard,
     });
   } catch (error) {
     console.log(error);

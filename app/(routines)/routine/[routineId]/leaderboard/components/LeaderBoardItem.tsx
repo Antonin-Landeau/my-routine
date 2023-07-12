@@ -9,7 +9,7 @@ interface LeaderBoardItemProps {
 const LeaderBoardItem: FC<LeaderBoardItemProps> = ({ item, index }) => {
   return (
     <div className="flex items-center py-1 gap-4">
-      <div>{index +1}.</div>
+      <div>{index + 1}.</div>
       <img
         src={item.user.image}
         className="rounded-full h-6 w-6"

@@ -5,7 +5,7 @@ import React, { FC } from "react";
 interface ImageUploadProps {
   onChange: (url: string) => void;
   label: string;
-  selectedImage: string;
+  selectedImage?: string;
 }
 
 const ImageUpload: FC<ImageUploadProps> = ({

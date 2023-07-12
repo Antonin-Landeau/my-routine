@@ -8,9 +8,10 @@ interface TasksInputProps {
   onChange: (task: Task) => void;
   onDelete: (index: number) => void;
   tasks: Task[];
+  loading?: boolean;
 }
 
-const TasksInput: FC<TasksInputProps> = ({ tasks, onChange, onDelete }) => {
+const TasksInput: FC<TasksInputProps> = ({ tasks,loading, onChange, onDelete }) => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [points, setPoints] = useState<string>("");
@@ -60,6 +61,7 @@ const TasksInput: FC<TasksInputProps> = ({ tasks, onChange, onDelete }) => {
       </div>
       <p className="text-red-500 text-xs mt-3">{error}</p>
       <button
+        disabled={loading}
         type="button"
         onClick={addTask}
         className="flex items-center p-2 ml-auto mt-4 w-fit text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 whitespace-nowrap"

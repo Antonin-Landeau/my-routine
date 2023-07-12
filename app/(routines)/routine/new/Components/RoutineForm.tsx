@@ -7,28 +7,16 @@ import * as z from "zod";
 import { CldUploadWidget } from "next-cloudinary";
 import { Carousel, useCarousel } from "@/Components/Carousel/Carousel";
 import { Image } from "lucide-react";
-import TasksInput from "./TasksInput";
+import TasksInput from "../../../../../Components/ui/Inputs/TasksInput";
 import Headings from "@/Components/ui/Headings";
 import TextInput from "@/Components/ui/Inputs/TextInput";
 import TextArea from "@/Components/ui/Inputs/TextArea";
 import ImageUpload from "@/Components/ui/Inputs/ImageUpload";
 import { RoutineFormData, Task } from "@/Types/types";
 import axios from "axios";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 interface RoutineFormProps {}
-
-const formSchema = z.object({
-  title: z.string().min(5),
-  description: z.string().min(20),
-  imgUrl: z.string(),
-  tasks: z.array(
-    z.object({
-      title: z.string(),
-      points: z.number().positive(),
-    })
-  ),
-});
 
 const RoutineForm: FC<RoutineFormProps> = ({}) => {
   const { index, nextIndex, prevIndex } = useCarousel();
@@ -39,13 +27,13 @@ const RoutineForm: FC<RoutineFormProps> = ({}) => {
   const [selectedImage, setSelectedImage] = useState<string>("");
   const [tasks, setTasks] = useState<Task[]>([]);
 
-  const removeTask = (index: number) => {
-    setTasks((prevData) => {
-      const newData = [...prevData];
-      newData.splice(index, 1);
-      return newData;
-    });
-  };
+    const removeTask = (index: number) => {
+      setTasks((prevData) => {
+        const newData = [...prevData];
+        newData.splice(index, 1);
+        return newData;
+      });
+    };
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
