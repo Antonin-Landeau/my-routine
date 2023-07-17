@@ -40,7 +40,7 @@ const RoutineOverviewPage: FC<RoutineOverviewPageProps> = async ({
     },
   });
 
-  const formatedCompletedTasks = completedTasks.map((t) => t.task);
+  const formatedCompletedTasks: any = completedTasks.map((t) => t.task);
 
   return (
     <div>

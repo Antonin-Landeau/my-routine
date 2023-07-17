@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/Lib/utils";
-import { Historic } from "@/Types/Historic";
+import { Historic } from "@/app/api/historical/route";
 import { Check, ChevronDown } from "lucide-react";
 import React, { FC, useState } from "react";
 

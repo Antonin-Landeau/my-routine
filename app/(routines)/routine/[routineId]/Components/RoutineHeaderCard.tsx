@@ -42,7 +42,6 @@ const RoutineHeaderCard: FC<RoutineHeaderCardProps> = async ({
   params,
 }) => {
   const session = await getServerSession(authOptions);
-  console.log(session?.user.id);
 
   const isParticipant = await isParticipating(
     session?.user.id,

@@ -30,9 +30,9 @@ const RoutineNavBar: FC<RoutineNavBarProps> = ({ params, isOwner }) => {
       active: pathname === `/routine/${params.routineId}/leaderboard`,
     },
     {
-      label: "Historic",
-      href: `/routine/${params.routineId}/historic`,
-      active: pathname === `/routine/${params.routineId}/historic`,
+      label: "Historical",
+      href: `/routine/${params.routineId}/historical`,
+      active: pathname === `/routine/${params.routineId}/historical`,
     },
   ];
 

@@ -84,7 +84,7 @@ const RoutineForm: FC<RoutineFormProps> = ({}) => {
           <TasksInput
             tasks={tasks}
             onChange={(task) => setTasks((prev) => [...prev, task])}
-            onDelete={(index) => removeTask(index)}
+            onDelete={(index) => removeTask(+index)}
           />
         </div>
       </Carousel>

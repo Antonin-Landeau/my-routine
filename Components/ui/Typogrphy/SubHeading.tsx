@@ -5,7 +5,7 @@ interface SubHeadingProps {
 }
 
 const SubHeading: FC<SubHeadingProps> = ({ label }) => {
-  return <h3 className="text-2xl border-b pb-2 mb-5">{label}</h3>;
+  return <h3 className="text-2xl font-medium border-b pb-3 mb-5">{label}</h3>;
 };
 
 export default SubHeading;

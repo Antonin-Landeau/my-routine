@@ -29,12 +29,18 @@ const RoutineSettingsPage: FC<RoutineSettingsPageProps> = async ({
 
   return (
     <div className="p-5 overflow-auto h-[80vh]">
-      <SubHeading label="Update Routine" />
-      <RoutineForm initialRoutine={routine} routineId={params.routineId} />
-      <SubHeading label="Update Taks" />
-      <TaskForm routineId={params.routineId} tasks={routine.tasks} />
-      <SubHeading label="Delete Routine" />
-      <DeleteRoutineButton routineId={params.routineId} />
+      <div className="mb-16">
+        <SubHeading label="Update Routine" />
+        <RoutineForm initialRoutine={routine} routineId={params.routineId} />
+      </div>
+      <div className="mb-16">
+        <SubHeading label="Update Taks" />
+        <TaskForm routineId={params.routineId} tasks={routine.tasks} />
+      </div>
+      <div className="mb-16">
+        <SubHeading label="Delete Routine" />
+        <DeleteRoutineButton routineId={params.routineId} />
+      </div>
     </div>
   );
 };

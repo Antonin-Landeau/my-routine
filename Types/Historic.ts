@@ -9,13 +9,13 @@ export interface HistoricTaks {
 export interface ScoreResponse {
   id: string;
   userId: string;
-  taskId: string;
+  taskId: string | null;
   createdAt: string;
   task: HistoricTaks;
 }
 
 export interface Historic {
   date: string;
-  score: number;
+  score?: number;
   tasks: HistoricTaks[];
 }

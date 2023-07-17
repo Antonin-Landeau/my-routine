@@ -5,10 +5,13 @@ import { Score } from "@prisma/client";
 import { getServerSession } from "next-auth";
 import React, { FC } from "react";
 import HistoricItem from "./components/HistoricItem";
+import HistoricClient from "./components/HistoricClient";
 
-interface RoutineHistoricPageProps {}
+interface RoutineHistoricPageProps {
+  params: { routineId: string };
+}
 
-function transformArray(array: ScoreResponse[]): Historic[] {
+function transformArray(array: any): Historic[] {
   const transformedArray: Historic[] = [];
 
   for (const obj of array) {
@@ -35,8 +38,14 @@ function transformArray(array: ScoreResponse[]): Historic[] {
   return transformedArray;
 }
 
-const RoutineHistoricPage: FC<RoutineHistoricPageProps> = async ({}) => {
+const RoutineHistoricPage: FC<RoutineHistoricPageProps> = async ({
+  params,
+}) => {
   const session = await getServerSession(authOptions);
+  if (!session?.user) {
+    return;
+  }
+
   const scores = await db.score.findMany({
     where: {
       userId: session?.user.id,
@@ -45,16 +54,26 @@ const RoutineHistoricPage: FC<RoutineHistoricPageProps> = async ({}) => {
       task: true,
     },
     orderBy: {
-      createdAt: "desc"
-    }
+      createdAt: "desc",
+    },
   });
-  const historics = transformArray(scores);
+
+  const historics: Historic[] = transformArray(scores);
 
   return (
     <div className="flex flex-col gap-5">
-      {historics.map((historic: Historic, index) => (
+      <HistoricClient
+        routineId={params?.routineId}
+        initialUser={{
+          email: session.user.email,
+          id: session.user.id,
+          name: session.user.name,
+          image: session.user.image,
+        }}
+      />
+      {/* {historics.map((historic: Historic, index: any) => (
         <HistoricItem historic={historic} key={index} />
-      ))}
+      ))} */}
     </div>
   );
 };
