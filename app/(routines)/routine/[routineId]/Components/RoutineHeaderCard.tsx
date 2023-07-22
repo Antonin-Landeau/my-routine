@@ -15,24 +15,9 @@ interface RoutineHeaderCardProps {
     name?: string | null;
     image?: string | null;
   };
+  isParticipant: boolean;
   params: { routineId: string };
 }
-
-const isParticipating = async (userId?: string, routineId?: string) => {
-  if (!userId) {
-    return false;
-  }
-  const isParticipant = await db.participation.findFirst({
-    where: {
-      userId,
-      routineId,
-    },
-  });
-
-  if (isParticipant) {
-    return true;
-  }
-};
 
 const RoutineHeaderCard: FC<RoutineHeaderCardProps> = async ({
   description,
@@ -40,13 +25,11 @@ const RoutineHeaderCard: FC<RoutineHeaderCardProps> = async ({
   title,
   author,
   params,
+  isParticipant
 }) => {
   const session = await getServerSession(authOptions);
 
-  const isParticipant = await isParticipating(
-    session?.user.id,
-    params.routineId
-  );
+
 
   return (
     <div className="max-w-sm h-fit bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

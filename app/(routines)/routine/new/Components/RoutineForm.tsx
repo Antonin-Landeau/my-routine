@@ -27,13 +27,13 @@ const RoutineForm: FC<RoutineFormProps> = ({}) => {
   const [selectedImage, setSelectedImage] = useState<string>("");
   const [tasks, setTasks] = useState<Task[]>([]);
 
-    const removeTask = (index: number) => {
-      setTasks((prevData) => {
-        const newData = [...prevData];
-        newData.splice(index, 1);
-        return newData;
-      });
-    };
+  const removeTask = (index: number) => {
+    setTasks((prevData) => {
+      const newData = [...prevData];
+      newData.splice(index, 1);
+      return newData;
+    });
+  };
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

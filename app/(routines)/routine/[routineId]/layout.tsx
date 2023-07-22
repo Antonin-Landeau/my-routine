@@ -7,6 +7,7 @@ import { redirect } from "next/navigation";
 import RoutineNavBar from "./Components/RoutineNavBar";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { isParticipating } from "@/app/Service/routine";
 
 interface RoutineLayoutProps {
   children: ReactNode;
@@ -24,29 +25,41 @@ const RoutineLayout: FC<RoutineLayoutProps> = async ({ children, params }) => {
     },
   });
 
+  const isParticipant = await isParticipating(
+    session?.user.id,
+    params.routineId
+  );
+
   const isOwner = routine?.author.email === session?.user.email;
   if (!routine) {
     redirect("/");
   }
 
   return (
-    <div className="flex p-10 gap-10">
-      <RoutineHeaderCard
-        params={params}
-        description={routine?.description}
-        title={routine?.title}
-        imgUrl={routine?.mainImg}
-        author={{
-          image: routine?.author.image,
-          name: routine?.author.name,
-        }}
-      />
+    <main className="mt-20">
+      <div className="flex p-10 gap-10 max-w-7xl m-auto">
+        <RoutineHeaderCard
+          params={params}
+          description={routine?.description}
+          title={routine?.title}
+          imgUrl={routine?.mainImg}
+          author={{
+            image: routine?.author.image,
+            name: routine?.author.name,
+          }}
+          isParticipant={isParticipant ? true : false}
+        />
 
-      <div className="flex-grow bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <RoutineNavBar params={params} isOwner={isOwner} />
-        <div className="p-5">{children}</div>
+        <div className="flex-grow bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <RoutineNavBar
+            isParticipant={isParticipant ? true : false}
+            params={params}
+            isOwner={isOwner}
+          />
+          <div className="p-5">{children}</div>
+        </div>
       </div>
-    </div>
+    </main>
   );
 };
 

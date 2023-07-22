@@ -14,9 +14,9 @@ const CreateRoutinePage: FC<CreateRoutinePageProps> = async ({}) => {
     redirect("/api/auth/signin?callbackUrl=http%3A%2F%2Flocalhost%3A3000%2F");
   }
   return (
-    <div>
+    <main className="mt-20">
       <RoutineForm />
-    </div>
+    </main>
   );
 };
 

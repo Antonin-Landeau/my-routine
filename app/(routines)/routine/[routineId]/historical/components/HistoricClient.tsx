@@ -28,7 +28,7 @@ const HistoricClient: FC<HistoricClientProps> = ({
   const [error, setError] = useState("");
 
   const getUserHistoric = async (routineId: string, userId: string) => {
-    setHistoric([])
+    setHistoric([]);
     setLaoding(true);
     try {
       const res = await axios.get(
@@ -62,9 +62,15 @@ const HistoricClient: FC<HistoricClientProps> = ({
           </div>
         ) : null}
         <div className="flex flex-col gap-4 mt-5">
-          {historic.map((h, index) => (
-            <HistoricItem historic={h} key={index} />
-          ))}
+          {historic &&
+            historic.map((h, index) => (
+              <HistoricItem historic={h} key={index} />
+            ))}
+          {!isLoading && historic.length === 0 && (
+            <div className="mx-auto mt-20 text-gray-500">
+              No historical
+            </div>
+          )}
         </div>
       </div>
     </div>

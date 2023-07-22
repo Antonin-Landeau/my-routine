@@ -7,7 +7,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 
 interface TaskFormProps {
-  tasks: Task[] ;
+  tasks: Task[];
   params: { routineId: string };
   completedTasks: Task[];
 }
@@ -59,7 +59,7 @@ const TaskForm: FC<TaskFormProps> = ({ tasks, params, completedTasks }) => {
           />
         );
       })}
-      <Button isLoading={isLoading} type="submit">
+      <Button isLoading={isLoading} type="submit" className="w-fit ml-auto">
         Save
       </Button>
     </form>

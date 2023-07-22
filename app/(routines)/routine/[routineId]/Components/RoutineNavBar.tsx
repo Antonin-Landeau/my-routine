@@ -8,9 +8,14 @@ import React, { FC } from "react";
 interface RoutineNavBarProps {
   params: { routineId: string };
   isOwner: boolean;
+  isParticipant: boolean;
 }
 
-const RoutineNavBar: FC<RoutineNavBarProps> = ({ params, isOwner }) => {
+const RoutineNavBar: FC<RoutineNavBarProps> = ({
+  params,
+  isOwner,
+  isParticipant,
+}) => {
   const pathname = usePathname();
 
   const routes = [
@@ -24,17 +29,21 @@ const RoutineNavBar: FC<RoutineNavBarProps> = ({ params, isOwner }) => {
       href: `/routine/${params.routineId}/participants`,
       active: pathname === `/routine/${params.routineId}/participants`,
     },
-    {
-      label: "Leaderboard",
-      href: `/routine/${params.routineId}/leaderboard`,
-      active: pathname === `/routine/${params.routineId}/leaderboard`,
-    },
-    {
-      label: "Historical",
-      href: `/routine/${params.routineId}/historical`,
-      active: pathname === `/routine/${params.routineId}/historical`,
-    },
   ];
+  if (isParticipant) {
+    routes.push(
+      {
+        label: "Leaderboard",
+        href: `/routine/${params.routineId}/leaderboard`,
+        active: pathname === `/routine/${params.routineId}/leaderboard`,
+      },
+      {
+        label: "Historical",
+        href: `/routine/${params.routineId}/historical`,
+        active: pathname === `/routine/${params.routineId}/historical`,
+      }
+    );
+  }
 
   if (isOwner) {
     routes.push({
