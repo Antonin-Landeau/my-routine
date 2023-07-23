@@ -48,14 +48,17 @@ model User {
   email           String?         @unique
   emailVerified   DateTime?
   image           String?
+  
   accounts        Account[]
   sessions        Session[]
   createdRoutines Routine[]
   participations  Participation[]
+  score             Score[]
+  RecivedInvitation Invitation[] @relation("RecivedInvitation")
+  SendInvitation    Invitation[] @relation("SendedInvitation")
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  score     Score[]
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
 }
 
 model VerificationToken {
@@ -81,6 +84,7 @@ model Routine {
   updatedAt    DateTime        @updatedAt
   participants Participation[]
   score        Score[]
+  Invitation   Invitation[]
 
   @@index([authorId])
 }
@@ -110,12 +114,12 @@ model Task {
 }
 
 model Score {
-  id      String  @id @default(cuid())
-  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId  String
-  task    Task?    @relation(fields: [taskId], references: [id], onDelete: Cascade)
-  taskId  String?
-  routine Routine @relation(fields: [routineId], references: [id], onDelete: Cascade)
+  id        String  @id @default(cuid())
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  task      Task?   @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  taskId    String?
+  routine   Routine @relation(fields: [routineId], references: [id], onDelete: Cascade)
   routineId String
 
   createdAt String
@@ -123,4 +127,29 @@ model Score {
   @@index([userId])
   @@index([taskId])
   @@index([routineId])
+}
+
+model Notification {
+  id          String       @id @default(cuid())
+  invitations Invitation[]
+}
+
+model Invitation {
+  id        String @id @default(cuid())
+  from      User   @relation("RecivedInvitation", fields: [senderId], references: [id])
+  senderId  String
+  to        User   @relation("SendedInvitation", fields: [reciverId], references: [id])
+  reciverId String
+
+  routine   Routine @relation(fields: [routineId], references: [id])
+  status    String
+  routineId String
+
+  Notification   Notification? @relation(fields: [notificationId], references: [id])
+  notificationId String?
+
+  @@index([senderId])
+  @@index([reciverId])
+  @@index([routineId])
+  @@index([notificationId])
 }
