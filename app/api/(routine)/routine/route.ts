@@ -15,8 +15,7 @@ export async function POST(req: Request) {
 
     const body = await req.json();
 
-    const { description, mainImg, tasks, title } = body;
-    console.log(tasks)
+    const { description, mainImg, tasks, title, isPublic } = body;
 
     const routine = await db.routine.create({
       data: {
@@ -27,6 +26,14 @@ export async function POST(req: Request) {
         tasks: {
           create: tasks,
         },
+        isPublic,
+      },
+    });
+    
+    const participation = await db.participation.create({
+      data: {
+        routineId: routine.id,
+        userId: session.user.id,
       },
     });
 

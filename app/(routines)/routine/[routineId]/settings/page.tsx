@@ -31,7 +31,6 @@ const RoutineSettingsPage: FC<RoutineSettingsPageProps> = async ({
     <div className="p-5 overflow-auto h-[80vh]">
       <div className="mb-16">
         <SubHeading label="Manage Participant" />
-        <RoutineForm initialRoutine={routine} routineId={params.routineId} />
       </div>
       <div className="mb-16">
         <SubHeading label="Update Routine" />

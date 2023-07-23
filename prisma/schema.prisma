@@ -43,22 +43,22 @@ model Session {
 }
 
 model User {
-  id              String          @id @default(cuid())
-  name            String?
-  email           String?         @unique
-  emailVerified   DateTime?
-  image           String?
-  
-  accounts        Account[]
-  sessions        Session[]
-  createdRoutines Routine[]
-  participations  Participation[]
-  score             Score[]
-  RecivedInvitation Invitation[] @relation("RecivedInvitation")
-  SendInvitation    Invitation[] @relation("SendedInvitation")
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
 
-  createdAt         DateTime     @default(now())
-  updatedAt         DateTime     @updatedAt
+  accounts          Account[]
+  sessions          Session[]
+  createdRoutines   Routine[]
+  participations    Participation[]
+  score             Score[]
+  RecivedInvitation Invitation[]    @relation("RecivedInvitation")
+  SendInvitation    Invitation[]    @relation("SendedInvitation")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model VerificationToken {
@@ -70,10 +70,11 @@ model VerificationToken {
 }
 
 model Routine {
-  id          String @id @default(cuid())
+  id          String  @id @default(cuid())
   title       String
   description String
   mainImg     String
+  isPublic    Boolean
 
   tasks Task[]
 

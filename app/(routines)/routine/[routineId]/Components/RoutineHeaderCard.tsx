@@ -17,6 +17,7 @@ interface RoutineHeaderCardProps {
   };
   isParticipant: boolean;
   params: { routineId: string };
+  isPublic: boolean;
 }
 
 const RoutineHeaderCard: FC<RoutineHeaderCardProps> = async ({
@@ -25,11 +26,10 @@ const RoutineHeaderCard: FC<RoutineHeaderCardProps> = async ({
   title,
   author,
   params,
-  isParticipant
+  isParticipant,
+  isPublic,
 }) => {
   const session = await getServerSession(authOptions);
-
-
 
   return (
     <div className="max-w-sm h-fit bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -49,11 +49,13 @@ const RoutineHeaderCard: FC<RoutineHeaderCardProps> = async ({
             )}
           </p>
         )}
-        <ParticipateLeaveRoutineToggle
-          routineId={params.routineId}
-          isParticipant={isParticipant ? true : false}
-          user={session ? true : false}
-        />
+        {isPublic && (
+          <ParticipateLeaveRoutineToggle
+            routineId={params.routineId}
+            isParticipant={isParticipant ? true : false}
+            user={session ? true : false}
+          />
+        )}
       </div>
     </div>
   );

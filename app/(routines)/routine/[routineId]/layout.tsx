@@ -31,8 +31,19 @@ const RoutineLayout: FC<RoutineLayoutProps> = async ({ children, params }) => {
   );
 
   const isOwner = routine?.author.email === session?.user.email;
+
   if (!routine) {
     redirect("/");
+  }
+
+  if (!routine.isPublic) {
+    console.log(isOwner);
+    if (!session) {
+      redirect("/");
+    }
+    if (!isOwner && !isParticipant) {
+      redirect("/");
+    }
   }
 
   return (
@@ -48,6 +59,7 @@ const RoutineLayout: FC<RoutineLayoutProps> = async ({ children, params }) => {
             name: routine?.author.name,
           }}
           isParticipant={isParticipant ? true : false}
+          isPublic={routine.isPublic}
         />
 
         <div className="flex-grow bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

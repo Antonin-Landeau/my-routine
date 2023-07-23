@@ -10,4 +10,5 @@ export interface RoutineFormData {
   description: string;
   mainImg: string;
   tasks: Task[];
+  isPublic: boolean;
 }
