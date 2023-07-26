@@ -49,6 +49,7 @@ const RoutineHistoricPage: FC<RoutineHistoricPageProps> = async ({
   const scores = await db.score.findMany({
     where: {
       userId: session?.user.id,
+      routineId: params.routineId,
     },
     include: {
       task: true,

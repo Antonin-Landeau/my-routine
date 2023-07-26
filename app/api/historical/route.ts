@@ -69,6 +69,7 @@ export async function GET(req: Request) {
     const scores = await db.score.findMany({
       where: {
         userId,
+        routineId,
       },
       include: {
         task: true,
