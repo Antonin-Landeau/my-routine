@@ -15,7 +15,7 @@ const NotificationLayout: FC<NotificationLayoutProps> = async ({
   if (!session) {
     redirect("/");
   }
-  return <div className="mt-20 max-w-7xl mx-auto">{children}</div>;
+  return <div>{children}</div>;
 };
 
 export default NotificationLayout;

@@ -54,8 +54,8 @@ model User {
   createdRoutines   Routine[]
   participations    Participation[]
   score             Score[]
-  RecivedInvitation Invitation[]    @relation("RecivedInvitation")
-  SendInvitation    Invitation[]    @relation("SendedInvitation")
+  recivedInvitation Invitation[]    @relation("RecivedInvitation")
+  sendInvitation    Invitation[]    @relation("SendedInvitation")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -84,8 +84,8 @@ model Routine {
   createdAt    DateTime        @default(now())
   updatedAt    DateTime        @updatedAt
   participants Participation[]
-  score        Score[]
-  Invitation   Invitation[]
+  scores        Score[]
+  invitations   Invitation[]
 
   @@index([authorId])
 }
@@ -146,7 +146,7 @@ model Invitation {
   status    String
   routineId String
 
-  Notification   Notification? @relation(fields: [notificationId], references: [id])
+  notification   Notification? @relation(fields: [notificationId], references: [id])
   notificationId String?
 
   @@index([senderId])
