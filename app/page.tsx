@@ -18,8 +18,8 @@ export default function Home() {
             Create Your routine and accomplish task to be the real you
           </h2>
           <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-            Chaque matin, la routine s'installe doucement : le réveil sonne, les
-            yeux s'ouvrent, le café embaume. Une danse familière commence, entre
+            Chaque matin, la routine s&apos;installe doucement : le réveil sonne, les
+            yeux s&apos;ouvrent, le café embaume. Une danse familière commence, entre
             travail et repos, ponctuée de petits rituels réconfortants.
           </p>
           <div className="flex gap-5">
@@ -43,10 +43,10 @@ export default function Home() {
       </section>
       <section className="bg-gradient-to-br from-blue-400 to-emerald-400 py-32 ">
         <h2 className="mb-8 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white text-center">
-          Les bienfaits d'une routine
+          Les bienfaits d&apos;une routine
         </h2>
         <p className="mb-6 text-lg font-normal text-slate-100 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400 text-center max-w-6xl mx-auto">
-          Une routine structurée offre une multitude d'avantages positifs pour
+          Une routine structurée offre une multitude d&apos;avantages positifs pour
           la santé physique, mentale et émotionnelle. Elle joue un rôle
           essentiel dans la gestion du stress.
         </p>
@@ -54,11 +54,11 @@ export default function Home() {
           <div className="p-6 flex flex-col gap-2 rounded-3xl w-96">
             <SmilePlus className="w-10 h-10 text-slate-100 mx-auto " />
             <h3 className="text-center text-gray-900 text-lg font-semibold">
-              Réduction du stress et de l'anxiété
+              Réduction du stress et de l&apos;anxiété
             </h3>
             <p className="text-slate-100 text-center">
               Une routine bien établie offre un sentiment de stabilité et de
-              prévisibilité, ce qui permet de réduire le stress et l'anxiété.
+              prévisibilité, ce qui permet de réduire le stress et l&apos;anxiété.
             </p>
           </div>
           <div className="p-6 flex flex-col gap-2 rounded-3xl w-96">
@@ -79,7 +79,7 @@ export default function Home() {
             </h3>
             <p className="text-slate-100 text-center">
               Une routine équilibrée peut inclure des moments dédiés à
-              l'exercice physique, au sommeil régulier et à la détente.
+              l&apos;exercice physique, au sommeil régulier et à la détente.
             </p>
           </div>
         </div>
