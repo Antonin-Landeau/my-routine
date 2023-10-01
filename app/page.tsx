@@ -18,9 +18,10 @@ export default function Home() {
             Create Your routine and accomplish task to be the real you
           </h2>
           <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-            Chaque matin, la routine s&apos;installe doucement : le réveil sonne, les
-            yeux s&apos;ouvrent, le café embaume. Une danse familière commence, entre
-            travail et repos, ponctuée de petits rituels réconfortants.
+            Chaque matin, la routine s&apos;installe doucement : le réveil
+            sonne, les yeux s&apos;ouvrent, le café embaume. Une danse familière
+            commence, entre travail et repos, ponctuée de petits rituels
+            réconfortants.
           </p>
           <div className="flex gap-5">
             <Link href={`/routine/new`}>
@@ -46,8 +47,8 @@ export default function Home() {
           Les bienfaits d&apos;une routine
         </h2>
         <p className="mb-6 text-lg font-normal text-slate-100 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400 text-center max-w-6xl mx-auto">
-          Une routine structurée offre une multitude d&apos;avantages positifs pour
-          la santé physique, mentale et émotionnelle. Elle joue un rôle
+          Une routine structurée offre une multitude d&apos;avantages positifs
+          pour la santé physique, mentale et émotionnelle. Elle joue un rôle
           essentiel dans la gestion du stress.
         </p>
         <div className="flex gap-20 max-w-7xl mx-auto">
@@ -58,7 +59,8 @@ export default function Home() {
             </h3>
             <p className="text-slate-100 text-center">
               Une routine bien établie offre un sentiment de stabilité et de
-              prévisibilité, ce qui permet de réduire le stress et l&apos;anxiété.
+              prévisibilité, ce qui permet de réduire le stress et
+              l&apos;anxiété.
             </p>
           </div>
           <div className="p-6 flex flex-col gap-2 rounded-3xl w-96">
