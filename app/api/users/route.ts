@@ -23,8 +23,8 @@ export async function GET(req: Request) {
         },
       },
       include: {
-        RecivedInvitation: true,
-        SendInvitation: true,
+        recivedInvitation: true,
+        sendInvitation: true,
       },
       take: 3,
     });
