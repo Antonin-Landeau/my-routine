@@ -27,7 +27,7 @@ const page: FC<NotificaitonPageProps> = async ({}) => {
       />
       <div className="border-b my-2"></div>
       {invitations.map((invitation, index) => (
-        <InvitationCard invitation={invitation} />
+        <InvitationCard key={index} invitation={invitation} />
       ))}
     </main>
   );
