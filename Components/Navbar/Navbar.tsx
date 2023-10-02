@@ -17,7 +17,7 @@ const Navbar: FC<NavbarProps> = async ({}) => {
 
   return (
     <div className="fixed top-0 w-full z-20 bg-slate-50 flex border-b border-gray-300 items-center h-20">
-      <div className="px-8 flex items-center w-full max-w-[1700px] m-auto">
+      <div className="pl-8 pr-8 flex items-center w-full max-w-[1700px] m-auto">
         <Link href="/">
           <Image src="/Logo.svg" alt="logo" width={35} height={35} />
         </Link>
