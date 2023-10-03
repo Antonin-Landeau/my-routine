@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/Components/ui/Buttons/Button";
-import ImageUpload from "@/Components/ui/Inputs/ImageUpload";
-import TextArea from "@/Components/ui/Inputs/TextArea";
-import TextInput from "@/Components/ui/Inputs/TextInput";
+import { Button } from "@/components/ui/Buttons/Button";
+import ImageUpload from "@/components/ui/Inputs/ImageUpload";
+import TextArea from "@/components/ui/Inputs/TextArea";
+import TextInput from "@/components/ui/Inputs/TextInput";
 import { RoutineWithTasks } from "@/Types/Routine";
 import axios from "axios";
 import { useRouter } from "next/navigation";

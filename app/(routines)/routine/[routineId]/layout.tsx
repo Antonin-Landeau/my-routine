@@ -1,10 +1,10 @@
-import { Button } from "@/Components/ui/Buttons/Button";
-import Headings from "@/Components/ui/Headings";
-import { db } from "@/Lib/db";
+import { Button } from "@/components/ui/Buttons/Button";
+import Headings from "@/components/ui/Headings";
+import { db } from "@/lib/db";
 import React, { FC, ReactNode } from "react";
-import RoutineHeaderCard from "./Components/RoutineHeaderCard";
+import RoutineHeaderCard from "./components/RoutineHeaderCard";
 import { redirect } from "next/navigation";
-import RoutineNavBar from "./Components/RoutineNavBar";
+import RoutineNavBar from "./components/RoutineNavBar";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { isParticipating } from "@/app/Service/routine";

@@ -1,4 +1,4 @@
-import { db } from "@/Lib/db";
+import { db } from "@/lib/db";
 import { AuthOptions } from "next-auth";
 import { Adapter } from "next-auth/adapters";
 import NextAuth from "next-auth/next";

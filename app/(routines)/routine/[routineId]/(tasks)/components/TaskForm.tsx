@@ -2,7 +2,7 @@
 import { Task } from "@prisma/client";
 import React, { FC, FormEvent, useEffect, useState } from "react";
 import TaskInput from "./TaskInput";
-import { Button } from "@/Components/ui/Buttons/Button";
+import { Button } from "@/components/ui/Buttons/Button";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 

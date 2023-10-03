@@ -1,4 +1,4 @@
-import { db } from "@/Lib/db";
+import { db } from "@/lib/db";
 import { CloudLightning } from "lucide-react";
 import { NextResponse } from "next/server";
 

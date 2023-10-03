@@ -1,5 +1,5 @@
 "use client";
-import { db } from "@/Lib/db";
+import { db } from "@/lib/db";
 import { ILeaderBoardItem } from "@/Types/LeaderBoard";
 import axios from "axios";
 import { Loader2, ServerCrash } from "lucide-react";

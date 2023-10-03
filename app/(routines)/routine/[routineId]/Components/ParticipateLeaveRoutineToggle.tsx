@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@/Components/ui/Buttons/Button";
+import { Button } from "@/components/ui/Buttons/Button";
 import axios, { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import React, { FC, useState } from "react";

@@ -1,4 +1,4 @@
-import { db } from "@/Lib/db";
+import { db } from "@/lib/db";
 import { ILeaderBoardItem, LeaderBoardRes } from "@/Types/LeaderBoard";
 import Leaderboard from "@/app/(routines)/routine/[routineId]/leaderboard/components/LeaderBoard";
 import { Score, User } from "@prisma/client";

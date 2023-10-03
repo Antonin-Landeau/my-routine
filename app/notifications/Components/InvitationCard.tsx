@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/Components/ui/Buttons/Button";
+import { Button } from "@/components/ui/Buttons/Button";
 import { Routine, User } from "@prisma/client";
 import axios from "axios";
 import Image from "next/image";

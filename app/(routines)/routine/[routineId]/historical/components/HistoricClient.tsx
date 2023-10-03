@@ -1,5 +1,5 @@
 "use client";
-import UserSelector from "@/Components/UserSelector";
+import UserSelector from "@/components/UserSelector";
 import { Historic } from "@/app/api/historical/route";
 import axios from "axios";
 import { Session } from "next-auth";
@@ -67,9 +67,7 @@ const HistoricClient: FC<HistoricClientProps> = ({
               <HistoricItem historic={h} key={index} />
             ))}
           {!isLoading && historic.length === 0 && (
-            <div className="mx-auto mt-20 text-gray-500">
-              No historical
-            </div>
+            <div className="mx-auto mt-20 text-gray-500">No historical</div>
           )}
         </div>
       </div>

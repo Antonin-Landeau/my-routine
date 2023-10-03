@@ -1,6 +1,6 @@
 "use client";
 
-import TasksInput from "@/Components/ui/Inputs/TasksInput";
+import TasksInput from "@/components/ui/Inputs/TasksInput";
 import { Task } from "@/Types/types";
 import axios from "axios";
 import { useRouter } from "next/navigation";

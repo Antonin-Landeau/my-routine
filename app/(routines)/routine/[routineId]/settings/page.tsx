@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import DeleteRoutineButton from "./components/DeleteRoutineButton";
 import RoutineForm from "./components/RoutineForm";
-import { db } from "@/Lib/db";
+import { db } from "@/lib/db";
 import { Prisma, Routine } from "@prisma/client";
 import { redirect } from "next/navigation";
-import SubHeading from "@/Components/ui/Typogrphy/SubHeading";
+import SubHeading from "@/components/ui/Typogrphy/SubHeading";
 import TaskForm from "./components/TaskForm";
 
 interface RoutineSettingsPageProps {

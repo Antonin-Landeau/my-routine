@@ -1,4 +1,4 @@
-import { Button } from "@/Components/ui/Buttons/Button";
+import { Button } from "@/components/ui/Buttons/Button";
 import {
   Dumbbell,
   ListChecks,
