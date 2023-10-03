@@ -24,7 +24,7 @@ interface User {
   name: string;
   image: string;
   id: string;
-  SendInvitation: {
+  sendInvitation: {
     routineId: string;
   }[];
 }
@@ -108,7 +108,7 @@ const InvitationForm: FC<InvitationFormProps> = ({ routineId }) => {
       {users.length > 0 && (
         <div className="border rounded-lg py-2 mt-2 px-5">
           {users.map((user, index) => {
-            const isInvited = user.SendInvitation.some(
+            const isInvited = user.sendInvitation.some(
               (invite) => invite.routineId === routineId
             );
             return (
