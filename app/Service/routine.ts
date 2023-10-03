@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { db } from "@/Lib/db";
 
 export const isParticipating = async (userId?: string, routineId?: string) => {
   if (!userId) {

@@ -1,5 +1,5 @@
-import TextArea from "@/components/ui/Inputs/TextArea";
-import TextInput from "@/components/ui/Inputs/TextInput";
+import TextArea from "@/Components/ui/Inputs/TextArea";
+import TextInput from "@/Components/ui/Inputs/TextInput";
 import { Task } from "@/Types/types";
 import { Loader2, Plus, PlusCircle } from "lucide-react";
 import React, { FC, useState } from "react";

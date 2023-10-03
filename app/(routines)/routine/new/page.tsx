@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
 import React, { FC } from "react";
-import RoutineForm from "./components/RoutineForm";
+import RoutineForm from "./Components/RoutineForm";
 
 interface CreateRoutinePageProps {}
 

@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { db } from "@/Lib/db";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
@@ -24,9 +24,9 @@ export async function POST(req: Request) {
 
     return NextResponse.json({
       message: `User ${session.user.id} participate to routine ${routineId}`,
-      data: {
-        participation,
-      },
+      data :{
+        participation
+      }
     });
   } catch (error) {
     console.log("[ROUTINE_PARTICIPATE_POST]", error);

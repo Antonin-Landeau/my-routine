@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { db } from "@/Lib/db";
 import Link from "next/link";
 import React, { FC } from "react";
 

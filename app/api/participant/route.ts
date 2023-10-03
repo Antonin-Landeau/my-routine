@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { db } from "@/Lib/db";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
@@ -19,6 +19,7 @@ export async function GET(req: Request) {
         user: true,
       },
     });
+
 
     return NextResponse.json(participants);
   } catch (error) {}

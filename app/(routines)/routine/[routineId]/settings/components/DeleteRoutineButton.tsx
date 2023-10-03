@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@/components/ui/Buttons/Button";
+import { Button } from "@/Components/ui/Buttons/Button";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import React, { FC, useState } from "react";
@@ -10,7 +10,7 @@ interface DeleteRoutineButtonProps {
 }
 
 const DeleteRoutineButton: FC<DeleteRoutineButtonProps> = ({ routineId }) => {
-  const router = useRouter();
+  const router = useRouter()
   const [loading, setLoading] = useState<boolean>(false);
   const onDelete = async () => {
     setLoading(true);
@@ -18,7 +18,7 @@ const DeleteRoutineButton: FC<DeleteRoutineButtonProps> = ({ routineId }) => {
       const res = await axios.delete(`/api/routine/${routineId}`);
       setLoading(false);
       toast.success("Routine has been Deleted");
-      router.push("/");
+      router.push("/")
     } catch (error) {
       setLoading(false);
       toast.error("Problem during deletion");
