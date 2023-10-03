@@ -33,7 +33,7 @@ export default function Home() {
           </div>
         </div>
         <div className="ml-20">
-          <Image
+          <img
             className="rounded-tl-3xl rounded-bl-3xl drop-shadow-lg -mr-80"
             src="/landing-hero.png"
             alt="landing-hero-img"
