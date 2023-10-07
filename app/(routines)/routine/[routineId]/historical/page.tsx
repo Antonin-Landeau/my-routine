@@ -1,4 +1,4 @@
-import { db } from "@/Lib/db";
+import { db } from "@/lib/db";
 import { Historic, ScoreResponse } from "@/Types/Historic";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { Score } from "@prisma/client";

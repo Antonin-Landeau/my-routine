@@ -1,8 +1,8 @@
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 import { authOptions } from "../auth/[...nextauth]/route";
-import { db } from "@/Lib/db";
-import { generateDate } from "@/Lib/utils";
+import { db } from "@/lib/db";
+import { generateDate } from "@/lib/utils";
 import { Task } from "@prisma/client";
 
 export async function POST(req: Request) {

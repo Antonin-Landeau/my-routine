@@ -1,6 +1,6 @@
 import { Button } from "@/Components/ui/Buttons/Button";
 import Headings from "@/Components/ui/Headings";
-import { db } from "@/Lib/db";
+import { db } from "@/lib/db";
 import React, { FC, ReactNode } from "react";
 import RoutineHeaderCard from "./Components/RoutineHeaderCard";
 import { redirect } from "next/navigation";

@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
-import { db } from "@/Lib/db";
+import { db } from "@/lib/db";
 import { RoutineFormData } from "@/Types/types";
 import { data } from "autoprefixer";
 
@@ -29,7 +29,7 @@ export async function POST(req: Request) {
         isPublic,
       },
     });
-    
+
     const participation = await db.participation.create({
       data: {
         routineId: routine.id,

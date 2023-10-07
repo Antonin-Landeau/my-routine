@@ -2,7 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
 }
 
 datasource db {
@@ -84,10 +85,11 @@ model Routine {
   createdAt    DateTime        @default(now())
   updatedAt    DateTime        @updatedAt
   participants Participation[]
-  scores        Score[]
-  invitations   Invitation[]
+  scores       Score[]
+  invitations  Invitation[]
 
   @@index([authorId])
+  @@fulltext([title])
 }
 
 model Participation {

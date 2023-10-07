@@ -3,7 +3,7 @@ import axios, { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import React, { FC } from "react";
 import ParticipateLeaveRoutineToggle from "./ParticipateLeaveRoutineToggle";
-import { db } from "@/Lib/db";
+import { db } from "@/lib/db";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
