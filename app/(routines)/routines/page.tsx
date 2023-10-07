@@ -1,5 +1,5 @@
 "use client";
-import { db } from "@/lib/db";
+import { db } from "@/Lib/db";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 import React, { FC, useState } from "react";

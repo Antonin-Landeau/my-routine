@@ -2,7 +2,7 @@ import Headings from "@/Components/ui/Headings";
 import { getServerSession } from "next-auth";
 import React, { FC } from "react";
 import { authOptions } from "../api/auth/[...nextauth]/route";
-import { db } from "@/lib/db";
+import { db } from "@/Lib/db";
 import InvitationCard from "./Components/InvitationCard";
 
 interface NotificaitonPageProps {}

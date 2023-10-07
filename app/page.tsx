@@ -80,7 +80,7 @@ export default function Home() {
               Favorise la santé physique et mentale
             </h3>
             <p className="text-slate-100 text-center">
-              Une routine équilibrée peut inclure des moments dédiés à
+              Une routine équiLibrée peut inclure des moments dédiés à
               l&apos;exercice physique, au sommeil régulier et à la détente.
             </p>
           </div>

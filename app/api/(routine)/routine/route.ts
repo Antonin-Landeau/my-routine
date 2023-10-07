@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import { db } from "@/Lib/db";
 import { RoutineFormData } from "@/Types/types";
 import { data } from "autoprefixer";
 

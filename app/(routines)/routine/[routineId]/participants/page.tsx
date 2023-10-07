@@ -1,5 +1,5 @@
 import InvitationForm from "@/Components/Forms/InvitationForm";
-import { db } from "@/lib/db";
+import { db } from "@/Lib/db";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import Image from "next/image";

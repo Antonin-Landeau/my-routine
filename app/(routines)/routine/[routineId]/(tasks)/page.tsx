@@ -1,11 +1,11 @@
-import { db } from "@/lib/db";
+import { db } from "@/Lib/db";
 import { isParticipating } from "@/app/Service/routine";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { Divide } from "lucide-react";
 import { getServerSession } from "next-auth";
 import React, { FC } from "react";
 import TaskForm from "./components/TaskForm";
-import { generateDate } from "@/lib/utils";
+import { generateDate } from "@/Lib/utils";
 
 interface RoutineOverviewPageProps {
   params: { routineId: string };
