@@ -24,9 +24,9 @@ export async function POST(req: Request) {
 
     return NextResponse.json({
       message: `User ${session.user.id} participate to routine ${routineId}`,
-      data :{
-        participation
-      }
+      data: {
+        participation,
+      },
     });
   } catch (error) {
     console.log("[ROUTINE_PARTICIPATE_POST]", error);

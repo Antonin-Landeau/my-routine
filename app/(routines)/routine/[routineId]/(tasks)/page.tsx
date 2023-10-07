@@ -11,7 +11,7 @@ interface RoutineOverviewPageProps {
   params: { routineId: string };
 }
 
-export const revalidate = 0
+export const revalidate = 0;
 
 const RoutineOverviewPage: FC<RoutineOverviewPageProps> = async ({
   params,

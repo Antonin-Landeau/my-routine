@@ -1,8 +1,11 @@
 "use client";
 
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { SessionProvider } from "next-auth/react";
 import { FC, ReactNode, useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
+
+const queryClient = new QueryClient();
 
 interface ProvidersProps {
   children: ReactNode;
@@ -21,8 +24,10 @@ const Providers: FC<ProvidersProps> = ({ children }) => {
   return (
     <div>
       <SessionProvider>
-        <Toaster />
-        {children}
+        <QueryClientProvider client={queryClient}>
+          <Toaster />
+          {children}
+        </QueryClientProvider>
       </SessionProvider>
     </div>
   );

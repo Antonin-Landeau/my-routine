@@ -29,7 +29,7 @@ export async function POST(req: Request) {
         isPublic,
       },
     });
-    
+
     const participation = await db.participation.create({
       data: {
         routineId: routine.id,
