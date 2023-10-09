@@ -4,9 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { FC } from "react";
 
-interface NavRoutesProps {}
+interface NavRoutesProps {
+  isLoggedIn: boolean;
+}
 
-const NavRoutes: FC<NavRoutesProps> = ({}) => {
+const NavRoutes: FC<NavRoutesProps> = ({ isLoggedIn }) => {
   const pathname = usePathname();
   const routes = [
     {
@@ -15,6 +17,14 @@ const NavRoutes: FC<NavRoutesProps> = ({}) => {
       active: pathname === "/routines",
     },
   ];
+
+  if (isLoggedIn) {
+    routes.push({
+      label: "MyRoutines",
+      href: `/routines/mine`,
+      active: pathname === "/routines/mine",
+    });
+  }
   return (
     <div className="ml-5">
       {routes.map((route, index) => (
@@ -24,7 +34,7 @@ const NavRoutes: FC<NavRoutesProps> = ({}) => {
           className={cn(
             "inline-block p-4 hover:text-gray-600 dark:hover:text-gray-300",
             route.active &&
-              "inline-block p-4 text-blue-600  rounded-t-lg active  dark:text-blue-500"
+              "inline-block p-4 font-semibold text-blue-600  rounded-t-lg active  dark:text-blue-500"
           )}
         >
           {route.label}

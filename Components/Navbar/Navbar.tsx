@@ -21,7 +21,7 @@ const Navbar: FC<NavbarProps> = async ({}) => {
         <Link href="/">
           <Image src="/Logo.svg" alt="logo" width={35} height={35} />
         </Link>
-        <NavRoutes />
+        <NavRoutes isLoggedIn={session?.user ? true : false} />
         <nav className="ml-auto">
           {session?.user ? (
             <div
