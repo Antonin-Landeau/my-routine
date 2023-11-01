@@ -9,11 +9,19 @@ import SignOutButton from "../ui/Buttons/SignOutButton";
 import NavRoutes from "./NavRoutes";
 import { Bell, Plus, PlusSquare, PlusSquareIcon } from "lucide-react";
 import Image from "next/image";
+import { db } from "@/Lib/db";
 
 interface NavbarProps {}
 
 const Navbar: FC<NavbarProps> = async ({}) => {
   const session = await getServerSession(authOptions);
+
+  const newInvitation = await db.invitation.count({
+    where: {
+      status: "pending",
+      reciverId: session?.user.id,
+    },
+  });
 
   return (
     <div className="fixed top-0 w-full z-20 bg-slate-50 flex border-b border-gray-300 items-center h-20">
@@ -21,15 +29,20 @@ const Navbar: FC<NavbarProps> = async ({}) => {
         <Link href="/">
           <Image src="/Logo.svg" alt="logo" width={35} height={35} />
         </Link>
-        <NavRoutes />
+        <NavRoutes isLoggedIn={session?.user ? true : false} />
         <nav className="ml-auto">
           {session?.user ? (
             <div
               className="flex gap-3
             "
             >
-              <Link href={`/notifications`}>
+              <Link href={`/notifications`} className="relative">
                 <Bell className="h-9 w-9 p-2 border text-gray-700 hover:cursor-pointer hover:bg-gray-200 rounded-lg" />
+                {newInvitation > 0 && (
+                  <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">
+                    {newInvitation}
+                  </div>
+                )}
               </Link>
               <Link href={`/routine/new`}>
                 <Plus className="h-9 w-9 p-2 border text-gray-700 hover:cursor-pointer hover:bg-gray-200 rounded-lg" />
